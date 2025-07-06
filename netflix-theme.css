@@ -1,49 +1,49 @@
 /* ────────────────────────────────────────────────
-   🎬 Neutral-Themed Jellyfin Theme — Clean Slate
+   🎬 Neutral-Themed Jellyfin Theme — Clean Slate
 ──────────────────────────────────────────────── */
 
 /* 1️⃣ Base Styles */
 body, .page {
-  background-color: #141414 !important;
-  color: #fff !important;
-  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+  background-color: #141414 !important;
+  color: #fff !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
 }
 
 /* 2️⃣ Header & Sidebar */
 .headerTabs, .sidebar {
-  background-color: #141414 !important;
+  background-color: #141414 !important;
 }
 .sidebar .nav-link, .sidebar .nav-item {
-  color: #fff !important;
-  background: none !important;
-  padding: 8px 16px;
+  color: #fff !important;
+  background: none !important;
+  padding: 8px 16px;
 }
 .sidebar .nav-link:hover, .sidebar .nav-item:hover {
-  background-color: rgba(255,255,255,0.05) !important;
+  background-color: rgba(255,255,255,0.05) !important;
 }
 
 /* 3️⃣ Buttons */
 button, .emby-button, .button-flat, .detailRibbon {
-  background: none !important;
-  color: #fff !important;
-  border: none !important;
-  box-shadow: none !important;
-  border-radius: 4px !important;
-  padding: 6px 12px !important;
-  font-weight: 400 !important;
+  background: none !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 4px !important;
+  padding: 6px 12px !important;
+  font-weight: 400 !important;
 }
 button:hover, .emby-button:hover, .button-flat:hover {
-  text-decoration: underline !important;
-  background: none !important;
-  color: #fff !important;
+  text-decoration: underline !important;
+  background: none !important;
+  color: #fff !important;
 }
 
 /* 4️⃣ Play & Icon Buttons */
 .btnPlay, .button-icon {
-  background-color: #424242 !important;
-  color: #fff !important;
-  border: none !important;
-  border-radius: 4px !important;
+  background-color: #424242 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 4px !important;
 }
 .btnPlay {
   padding: 8px 16px !important;
@@ -53,10 +53,10 @@ button:hover, .emby-button:hover, .button-flat:hover {
 }
 
 .btnPlay:hover, .button-icon:hover {
-  background-color: #616161 !important;
+  background-color: #616161 !important;
 }
 
-/* 4b. Icon Colors (NEW) */
+/* 4b. Icon Colors */
 /* This specifically targets the icons inside buttons which may have their own color */
 .button-icon svg, .btnPlay svg {
     fill: #ffffff !important;
@@ -67,15 +67,15 @@ button:hover, .emby-button:hover, .button-flat:hover {
 
 /* 5️⃣ Card Styles */
 .cardBox, .cardOverlayContainer {
-  border-radius: 6px !important;
-  overflow: hidden !important;
-  transition: transform 0.15s ease-in-out !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  transition: transform 0.15s ease-in-out !important;
 }
 .cardBox:hover, .cardOverlayContainer:hover {
-  transform: scale(1.03) !important;
+  transform: scale(1.03) !important;
 }
 .cardOverlayContainer {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.7) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.7) !important;
 }
 
 /* 6️⃣ Text & Titles */
@@ -83,13 +83,18 @@ button:hover, .emby-button:hover, .button-flat:hover {
 .detailSection-title, .detailSection-content,
 .detailSection-content span,
 p, a, span, div, h1, h2, h3, h4, h5, h6 {
-  background: none !important;
-  color: #fff !important;
-  font-weight: 400 !important;
-  border: none !important;
+  background: none !important;
+  color: #fff !important;
+  font-weight: 400 !important;
+  border: none !important;
 }
 .detailSection-content a {
     background: none !important;
+}
+
+/* NEW: Ensure text color for elements with a title attribute */
+[title] {
+    color: #fff !important;
 }
 
 
@@ -108,10 +113,10 @@ a[class*="label"],
 a[class*="tag"],
 a[class*="chip"],
 .itemTags .tag {
-  background-color: transparent !important;
-  color: #e0e0e0 !important;
-  border: 1px solid #555 !important;
-  box-shadow: none !important;
+  background-color: transparent !important;
+  color: #e0e0e0 !important;
+  border: 1px solid #555 !important;
+  box-shadow: none !important;
   padding: 2px 6px !important;
   margin: 0 4px 2px 0 !important;
   border-radius: 4px !important;
@@ -132,28 +137,28 @@ a[class*="chip"],
 
 /* 8️⃣ Media info text (bit rates, codecs, runtime) */
 .mediaInfoItem, .infoText, .itemMiscInfo {
-  color: #ccc !important;
+  color: #ccc !important;
 }
 
 /* 9️⃣ Scrollbar styling */
 ::-webkit-scrollbar {
-  width: 8px !important;
+  width: 8px !important;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #616161 !important;
-  border-radius: 4px !important;
+  background-color: #616161 !important;
+  border-radius: 4px !important;
 }
 
 /* 🔟 Backdrop effects */
 .layout-desktop .backdropImage {
-  filter: blur(4px) contrast(100%) brightness(22%) saturate(110%) !important;
+  filter: blur(4px) contrast(100%) brightness(22%) saturate(110%) !important;
 }
 .backgroundContainer.withBackdrop {
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 5%, rgba(0,0,0,0.4) 40%, transparent 90%) !important;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 5%, rgba(0,0,0,0.4) 40%, transparent 90%) !important;
 }
 .layout-mobile .itemBackdrop {
-  filter: blur(2px) brightness(20%) contrast(120%) saturate(110%) !important;
-  position: fixed !important;
-  top: 0; left: 0; width: 100%; height: 100vh;
-  z-index: -1 !important;
+  filter: blur(2px) brightness(20%) contrast(120%) saturate(110%) !important;
+  position: fixed !important;
+  top: 0; left: 0; width: 100%; height: 100vh;
+  z-index: -1 !important;
 }
