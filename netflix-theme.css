@@ -13,12 +13,22 @@ body, .page {
 .headerTabs, .sidebar {
   background-color: #141414 !important;
 }
-/* NEW: Style for the active header tab to remove red background */
-.headerTabs .tab-button.active { /* Common Jellyfin active tab class */
+/* NEW/UPDATED: Style for the active header tab to remove red background */
+/* Targeting more broadly to catch various active states */
+.headerTabs .tab-button.active,
+.headerTabs .tab-button.active a,
+.headerTabs .tab-button.active .button-text,
+.headerTabs .tab-button.active .material-icons,
+.headerTabs .tab-button[data-tab-value].active { /* Added data-tab-value for robustness */
   background-color: transparent !important;
   color: #fff !important;
   border-bottom: 2px solid #fff !important; /* Optional: adds a subtle white underline indicator */
 }
+/* Ensure hover state for active tab also remains neutral */
+.headerTabs .tab-button.active:hover {
+  background-color: rgba(255,255,255,0.05) !important;
+}
+
 .sidebar .nav-link, .sidebar .nav-item {
   color: #fff !important;
   background: none !important;
@@ -45,9 +55,12 @@ button:hover, .emby-button:hover, .button-flat:hover {
 }
 
 /* 4️⃣ Play & Icon Buttons */
-/* UPDATED: Added common classes for navigation arrows to ensure consistent styling */
-.btnPlay, .button-icon, .slick-prev, .slick-next, .arrow-button {
+/* UPDATED: Added more specific classes for navigation arrows and ensured background-image is removed */
+.btnPlay, .button-icon,
+.slick-prev, .slick-next, .arrow-button, /* Common arrow classes */
+.scrollButtons .button-flat { /* Specific for scroll buttons */
   background-color: #424242 !important;
+  background-image: none !important; /* Crucial for removing potential red gradients/images */
   color: #fff !important;
   border: none !important;
   border-radius: 4px !important;
@@ -60,16 +73,22 @@ button:hover, .emby-button:hover, .button-flat:hover {
 }
 
 /* UPDATED: Hover state for newly added arrow button classes */
-.btnPlay:hover, .button-icon:hover, .slick-prev:hover, .slick-next:hover, .arrow-button:hover {
+.btnPlay:hover, .button-icon:hover,
+.slick-prev:hover, .slick-next:hover, .arrow-button:hover,
+.scrollButtons .button-flat:hover {
   background-color: #616161 !important;
 }
 
 /* 4b. Icon Colors */
 /* UPDATED: Ensured icons within newly added arrow button classes are white */
-.button-icon svg, .btnPlay svg, .slick-prev svg, .slick-next svg, .arrow-button svg {
+.button-icon svg, .btnPlay svg,
+.slick-prev svg, .slick-next svg, .arrow-button svg,
+.scrollButtons .button-flat svg {
     fill: #ffffff !important;
 }
-.button-icon .material-icons, .btnPlay .material-icons, .slick-prev .material-icons, .slick-next .material-icons, .arrow-button .material-icons {
+.button-icon .material-icons, .btnPlay .material-icons,
+.slick-prev .material-icons, .slick-next .material-icons, .arrow-button .material-icons,
+.scrollButtons .button-flat .material-icons {
     color: #ffffff !important;
 }
 
@@ -107,6 +126,7 @@ p, a, span, div, h1, h2, h3, h4, h5, h6 {
 
 
 /* 7️⃣ Remove red background from labels/tags */
+/* UPDATED: Added more specific selectors for badges/counters */
 .badge, .emby-badge, .text-badge, /* Added more generic badge classes */
 .header-tag,
 .detailSection-content a[href*="person"],
@@ -120,8 +140,12 @@ div[class*="chip"],
 a[class*="label"],
 a[class*="tag"],
 a[class*="chip"],
-.itemTags .tag {
+.itemTags .tag,
+.cardOverlayButton-text, /* Text inside some overlay buttons/badges */
+.itemCount, /* Common class for number counters */
+.dashboardCard .itemCount { /* Specific for dashboard card counters */
   background-color: transparent !important;
+  background-image: none !important; /* Remove any background images/gradients */
   color: #e0e0e0 !important;
   border: 1px solid #555 !important;
   box-shadow: none !important;
