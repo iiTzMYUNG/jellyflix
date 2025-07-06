@@ -1,43 +1,59 @@
-/* Netflix Style - Jellyfin Custom CSS */
+/* Netflix-Style Jellyfin Theme */
 
-/* Dark background */
+/* Dark base background */
 body, .page {
     background-color: #141414 !important;
-    color: #fff !important;
+    color: #ffffff !important;
 }
 
-/* Red highlight like Netflix */
+/* Netflix red accents */
 :root {
     --theme-primary-color: #e50914 !important;
     --theme-secondary-color: #b81d24 !important;
+    --primary: #e50914 !important;
+    --highlight-color: #e50914 !important;
 }
 
-/* Cards */
+/* Card appearance */
 .cardBox, .cardOverlayContainer {
     border-radius: 6px !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7) !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.75) !important;
 }
 
-/* Fonts and spacing */
+/* Font tweaks */
 h1, h2, h3, h4 {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-    font-weight: bold;
+    font-weight: bold !important;
 }
 
+/* Card and item names */
 .itemName, .cardText {
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+    color: #ffffff !important;
 }
 
-/* Remove background images for a cleaner look */
+/* Hide backdrop images for cleaner layout */
 .backdropImage {
     display: none !important;
 }
 
-/* Top navigation bar */
+/* Navigation Bar */
 .headerTabs {
     background-color: #141414 !important;
     border-bottom: 1px solid #333 !important;
+}
+
+/* Buttons */
+.button-flat, .emby-button, button {
+    background-color: #e50914 !important;
+    color: #ffffff !important;
+    border-radius: 4px !important;
+    border: none !important;
+}
+
+.button-flat:hover, .emby-button:hover, button:hover {
+    background-color: #b81d24 !important;
 }
 
 /* Login screen */
@@ -46,20 +62,19 @@ h1, h2, h3, h4 {
 }
 
 .formDialogHeader {
-    color: white !important;
+    color: #ffffff !important;
 }
 
-/* Buttons */
-.button-flat, .emby-button {
-    background-color: #e50914 !important;
-    color: white !important;
-    border-radius: 4px;
-}
-
-/* Scrollbar */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
     width: 8px;
 }
 ::-webkit-scrollbar-thumb {
-    background: #e50914;
+    background-color: #e50914;
+    border-radius: 4px;
+}
+
+/* Focus state */
+*:focus {
+    outline: 2px solid #e50914 !important;
 }
