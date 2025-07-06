@@ -1,41 +1,16 @@
-/* Netflix-Style Jellyfin Theme */
+/* Netflix-Inspired Jellyfin Theme with Stylized Backdrop */
 
-/* Dark base background */
+/* Base Dark Theme */
 body, .page {
     background-color: #141414 !important;
     color: #ffffff !important;
 }
 
-/* Netflix red accents */
 :root {
     --theme-primary-color: #e50914 !important;
     --theme-secondary-color: #b81d24 !important;
     --primary: #e50914 !important;
     --highlight-color: #e50914 !important;
-}
-
-/* Card appearance */
-.cardBox, .cardOverlayContainer {
-    border-radius: 6px !important;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.75) !important;
-}
-
-/* Font tweaks */
-h1, h2, h3, h4 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-    font-weight: bold !important;
-}
-
-/* Card and item names */
-.itemName, .cardText {
-    font-size: 1rem !important;
-    font-weight: 500 !important;
-    color: #ffffff !important;
-}
-
-/* Hide backdrop images for cleaner layout */
-.backdropImage {
-    display: none !important;
 }
 
 /* Navigation Bar */
@@ -56,16 +31,25 @@ h1, h2, h3, h4 {
     background-color: #b81d24 !important;
 }
 
-/* Login screen */
-.page.loginPage {
-    background-color: #141414 !important;
+/* Card Appearance */
+.cardBox, .cardOverlayContainer {
+    border-radius: 6px !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.75) !important;
 }
 
-.formDialogHeader {
+/* Fonts */
+h1, h2, h3, h4 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+    font-weight: bold !important;
+}
+
+.itemName, .cardText {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
     color: #ffffff !important;
 }
 
-/* Scrollbar styling */
+/* Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -74,7 +58,50 @@ h1, h2, h3, h4 {
     border-radius: 4px;
 }
 
-/* Focus state */
+/* Focus */
 *:focus {
     outline: 2px solid #e50914 !important;
+}
+
+/* Backdrop Filter Desktop */
+.layout-desktop .backdropImage {
+    filter: blur(4px) saturate(124%) contrast(100%) brightness(22%);
+    transition: filter 0.3s;
+}
+
+.backgroundContainer.withBackdrop {
+    background: linear-gradient(
+        0deg,
+        rgb(3, 0, 9) 0%,
+        rgba(3, 0, 9, 0.98) 6%,
+        rgba(3, 0, 9, 0.95) 12%,
+        rgba(3, 0, 9, 0.9) 25%,
+        rgba(3, 0, 9, 0.5) 50%,
+        rgba(3, 0, 9, 0.0) 100%
+    );
+    opacity: 1;
+    filter: grayscale(30%);
+}
+
+/* Mobile Backdrop */
+.layout-mobile .itemBackdrop {
+    display: block;
+    -webkit-animation: backdrop-fadein 0.8s ease-in normal both;
+    animation: backdrop-fadein 0.8s ease-in normal both;
+    background-attachment: fixed;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    filter: blur(0px) saturate(100%) contrast(130%) brightness(20%);
+}
+
+.layout-mobile .backdropImage {
+    filter: blur(0px) saturate(100%) contrast(120%) brightness(65%);
+    transition: filter 0.3s;
 }
