@@ -1,53 +1,119 @@
-/* ---------------------------
-   🧼 Clean Up Red Overuse 
---------------------------- */
+/* ───────────────────────────────────────────────────────────
+   🎬 Netflix-style Jellyfin Theme — Clean & Polished V1
+─────────────────────────────────────────────────────────── */
 
-/* Top right icon buttons */
-.headerButton, .headerButton:hover, .headerButton:focus {
-    background: transparent !important;
-    color: white !important;
-    box-shadow: none !important;
-    border: none !important;
+/* Base UI */
+body, .page {
+  background-color: #141414 !important;
+  color: #eee !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
 }
 
-/* Fix tag/chip styles */
-.tag, .itemTags .tag, .label.label-default, .textActionButton, .itemExternalLinks .button-flat {
-    background-color: transparent !important;
-    color: #e50914 !important;
-    border: 1px solid #e50914 !important;
-    border-radius: 4px !important;
-    padding: 2px 6px !important;
-    font-weight: 500;
-    display: inline-block;
-    margin: 2px;
+/* Accent colors */
+:root {
+  --theme-primary-color: #e50914 !important;
+  --theme-secondary-color: #b81d24 !important;
 }
 
-/* Remove red from any card headers or chip stacks */
-.tag:before {
-    display: none !important;
+/* Sidebar & Header */
+.headerTabs, .sidebar {
+  background-color: #141414 !important;
+}
+.sidebar .nav-link, .sidebar .nav-item {
+  padding: 8px 16px;
+}
+.sidebar .nav-link:hover, .sidebar .nav-item:hover {
+  background-color: rgba(230,9,20,0.1) !important;
 }
 
-/* Cleanup red buttons everywhere except Play */
-.emby-button:not(.btnPlay), button:not(.btnPlay) {
-    background-color: transparent !important;
-    border: 1px solid #e50914 !important;
-    color: #e50914 !important;
-    transition: all 0.2s ease-in-out;
+/* Tag/Badge styling */
+.tag, .itemTags .tag {
+  background: none !important;
+  color: #e50914 !important;
+  border: 1px solid #e50914 !important;
+  border-radius: 12px !important;
+  padding: 2px 8px !important;
+  margin: 2px 4px 2px 0;
+  font-size: 0.8rem;
 }
 
-.emby-button:hover:not(.btnPlay), button:hover:not(.btnPlay) {
-    background-color: #e50914 !important;
-    color: white !important;
+/* Buttons */
+button, .emby-button, .button-flat {
+  background: none !important;
+  border: 1px solid #e50914 !important;
+  color: #e50914 !important;
+  border-radius: 4px !important;
+  padding: 6px 12px !important;
+  transition: all 0.2s ease-in-out;
+}
+button:hover, .emby-button:hover, .button-flat:hover {
+  background: #e50914 !important;
+  color: white !important;
 }
 
-/* Play Button - bold red */
+/* Play button stands out */
 .btnPlay {
-    background-color: #e50914 !important;
-    color: white !important;
-    border: none !important;
-    border-radius: 6px;
+  background-color: #e50914 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+}
+.btnPlay:hover {
+  background-color: #b81d24 !important;
 }
 
-.btnPlay:hover {
-    background-color: #b81d24 !important;
+/* Icon buttons (search, profile, etc.) */
+.headerButton, .headerButton:hover, .headerButton:focus {
+  background: none !important;
+  color: #eee !important;
+  box-shadow: none !important;
+}
+
+/* Card grid positioning */
+.cardBox, .cardOverlayContainer {
+  border-radius: 6px !important;
+  overflow: hidden;
+  transition: transform 0.1s ease-in-out;
+}
+.cardBox:hover, .cardOverlayContainer:hover {
+  transform: scale(1.02);
+}
+
+/* Card shadows */
+.cardOverlayContainer {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Text and title */
+.itemName, .cardText {
+  font-weight: 500 !important;
+  color: white !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #e50914;
+  border-radius: 4px;
+}
+
+/* Focus outlines */
+*:focus {
+  outline: 2px solid #e50914 !important;
+}
+
+/* Backdrop effects */
+.layout-desktop .backdropImage {
+  filter: blur(4px) contrast(100%) brightness(22%) saturate(120%);
+}
+.backgroundContainer.withBackdrop {
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 5%, rgba(0,0,0,0.4) 40%, transparent 90%);
+}
+
+/* Mobile backdrop */
+.layout-mobile .itemBackdrop {
+  filter: blur(2px) brightness(20%) contrast(120%) saturate(110%) !important;
+  position: fixed!important; top:0; left:0; width:100%; height:100vh; z-index:-1;
 }
