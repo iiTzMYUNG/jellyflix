@@ -1,85 +1,94 @@
-/* ─────────────────────────────
-   🧼 Netflix Clean Text Fix
-───────────────────────────── */
+/* ───────────────────────────────
+   🧼 Final Clean Netflix Style
+─────────────────────────────── */
 
-/* Make all titles, tags, and metadata white */
-.itemName,
-.detailSection-title,
-.detailSection-content,
-.secondaryText,
-.emby-tab-button,
-button,
-a,
-p,
-h1, h2, h3, h4, h5, h6,
-.tag,
-.label,
-.label.label-default {
+/* General text cleanup */
+body, p, a, span, div, h1, h2, h3, h4, h5, h6,
+.itemName, .detailSection-title, .detailSection-content {
+  background: none !important;
+  color: #fff !important;
+  font-weight: 400 !important;
+  border: none !important;
+}
+
+/* Remove red box fill from titles */
+.detailSection-title .textActionButton,
+.itemExternalLinks .btnLink,
+.sectionTitle,
+h3.cardText {
   background: none !important;
   color: #fff !important;
   border: none !important;
-  font-weight: 400 !important;
 }
 
-/* Tags - simple white text with red border */
+/* Tags: Optional red border style */
 .tag, .itemTags .tag {
   color: #e50914 !important;
   border: 1px solid #e50914 !important;
   background: transparent !important;
-  border-radius: 12px !important;
-  padding: 2px 8px !important;
+  border-radius: 12px;
+  padding: 2px 8px;
   font-size: 0.75rem;
-  font-weight: 500 !important;
+  font-weight: 500;
 }
 
-/* Sidebar item text */
+/* Sidebar menu items */
 .sidebar .nav-link, .sidebar .nav-item {
   color: #fff !important;
+  background: none !important;
 }
 .sidebar .nav-link:hover, .sidebar .nav-item:hover {
   background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
-/* Title strip & buttons */
-.emby-button, .button-flat, .detailRibbon {
-  background: transparent !important;
+/* Buttons (flat white, except play) */
+button, .emby-button, .button-flat, .btnReset, .detailRibbon {
+  background: none !important;
   color: #fff !important;
-  border: 1px solid #e50914 !important;
-  border-radius: 4px;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 4px !important;
 }
-.emby-button:hover, .button-flat:hover {
-  background-color: #e50914 !important;
+button:hover, .emby-button:hover {
+  text-decoration: underline !important;
+  background: none !important;
   color: #fff !important;
 }
 
-/* Play button should stay Netflix red */
+/* Keep only Play button red */
 .btnPlay {
   background-color: #e50914 !important;
-  color: #fff !important;
+  color: white !important;
   border: none !important;
-  border-radius: 6px;
+  border-radius: 4px;
 }
 .btnPlay:hover {
   background-color: #b81d24 !important;
 }
 
-/* General text fixes */
-.detailSection-content a,
-.detailSection-content span,
-.detailSection-content div {
+/* Info text like resolution, audio, etc. */
+.mediaInfoItem, .infoText, .itemMiscInfo {
+  color: #ccc !important;
+}
+
+/* Remove background from external links */
+.itemExternalLinks a {
   color: #fff !important;
   background: none !important;
-  font-weight: 400 !important;
+  border: none !important;
 }
 
-/* Episode info text */
-.itemMiscInfo, .mediaInfoItem, .infoText, .itemExternalLinks {
-  color: #ccc !important;
+/* Card titles under episodes or seasons */
+.cardText {
+  color: #fff !important;
   background: none !important;
 }
 
-/* Disable red highlight for selected text */
-::selection {
-  background: #e50914;
-  color: #fff;
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #e50914;
+  border-radius: 4px;
 }
