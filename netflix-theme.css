@@ -1,119 +1,85 @@
-/* ───────────────────────────────────────────────────────────
-   🎬 Netflix-style Jellyfin Theme — Clean & Polished V1
-─────────────────────────────────────────────────────────── */
+/* ─────────────────────────────
+   🧼 Netflix Clean Text Fix
+───────────────────────────── */
 
-/* Base UI */
-body, .page {
-  background-color: #141414 !important;
-  color: #eee !important;
-  font-family: 'Helvetica Neue', Arial, sans-serif !important;
-}
-
-/* Accent colors */
-:root {
-  --theme-primary-color: #e50914 !important;
-  --theme-secondary-color: #b81d24 !important;
-}
-
-/* Sidebar & Header */
-.headerTabs, .sidebar {
-  background-color: #141414 !important;
-}
-.sidebar .nav-link, .sidebar .nav-item {
-  padding: 8px 16px;
-}
-.sidebar .nav-link:hover, .sidebar .nav-item:hover {
-  background-color: rgba(230,9,20,0.1) !important;
-}
-
-/* Tag/Badge styling */
-.tag, .itemTags .tag {
+/* Make all titles, tags, and metadata white */
+.itemName,
+.detailSection-title,
+.detailSection-content,
+.secondaryText,
+.emby-tab-button,
+button,
+a,
+p,
+h1, h2, h3, h4, h5, h6,
+.tag,
+.label,
+.label.label-default {
   background: none !important;
+  color: #fff !important;
+  border: none !important;
+  font-weight: 400 !important;
+}
+
+/* Tags - simple white text with red border */
+.tag, .itemTags .tag {
   color: #e50914 !important;
   border: 1px solid #e50914 !important;
+  background: transparent !important;
   border-radius: 12px !important;
   padding: 2px 8px !important;
-  margin: 2px 4px 2px 0;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 500 !important;
 }
 
-/* Buttons */
-button, .emby-button, .button-flat {
-  background: none !important;
+/* Sidebar item text */
+.sidebar .nav-link, .sidebar .nav-item {
+  color: #fff !important;
+}
+.sidebar .nav-link:hover, .sidebar .nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Title strip & buttons */
+.emby-button, .button-flat, .detailRibbon {
+  background: transparent !important;
+  color: #fff !important;
   border: 1px solid #e50914 !important;
-  color: #e50914 !important;
-  border-radius: 4px !important;
-  padding: 6px 12px !important;
-  transition: all 0.2s ease-in-out;
+  border-radius: 4px;
 }
-button:hover, .emby-button:hover, .button-flat:hover {
-  background: #e50914 !important;
-  color: white !important;
+.emby-button:hover, .button-flat:hover {
+  background-color: #e50914 !important;
+  color: #fff !important;
 }
 
-/* Play button stands out */
+/* Play button should stay Netflix red */
 .btnPlay {
   background-color: #e50914 !important;
-  color: white !important;
+  color: #fff !important;
   border: none !important;
-  border-radius: 4px !important;
+  border-radius: 6px;
 }
 .btnPlay:hover {
   background-color: #b81d24 !important;
 }
 
-/* Icon buttons (search, profile, etc.) */
-.headerButton, .headerButton:hover, .headerButton:focus {
+/* General text fixes */
+.detailSection-content a,
+.detailSection-content span,
+.detailSection-content div {
+  color: #fff !important;
   background: none !important;
-  color: #eee !important;
-  box-shadow: none !important;
+  font-weight: 400 !important;
 }
 
-/* Card grid positioning */
-.cardBox, .cardOverlayContainer {
-  border-radius: 6px !important;
-  overflow: hidden;
-  transition: transform 0.1s ease-in-out;
-}
-.cardBox:hover, .cardOverlayContainer:hover {
-  transform: scale(1.02);
+/* Episode info text */
+.itemMiscInfo, .mediaInfoItem, .infoText, .itemExternalLinks {
+  color: #ccc !important;
+  background: none !important;
 }
 
-/* Card shadows */
-.cardOverlayContainer {
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7) !important;
-}
-
-/* Text and title */
-.itemName, .cardText {
-  font-weight: 500 !important;
-  color: white !important;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #e50914;
-  border-radius: 4px;
-}
-
-/* Focus outlines */
-*:focus {
-  outline: 2px solid #e50914 !important;
-}
-
-/* Backdrop effects */
-.layout-desktop .backdropImage {
-  filter: blur(4px) contrast(100%) brightness(22%) saturate(120%);
-}
-.backgroundContainer.withBackdrop {
-  background: linear-gradient(to top, rgba(0,0,0,0.8) 5%, rgba(0,0,0,0.4) 40%, transparent 90%);
-}
-
-/* Mobile backdrop */
-.layout-mobile .itemBackdrop {
-  filter: blur(2px) brightness(20%) contrast(120%) saturate(110%) !important;
-  position: fixed!important; top:0; left:0; width:100%; height:100vh; z-index:-1;
+/* Disable red highlight for selected text */
+::selection {
+  background: #e50914;
+  color: #fff;
 }
