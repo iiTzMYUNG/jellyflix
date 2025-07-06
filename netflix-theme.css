@@ -38,15 +38,22 @@ button:hover, .emby-button:hover, .button-flat:hover {
   color: #fff !important;
 }
 
-/* 4️⃣ Play button standout */
-.btnPlay {
+/* 4️⃣ Play & Icon Buttons */
+.btnPlay, .button-icon { /* Added .button-icon to target the red icon buttons */
   background-color: #424242 !important; /* Was red */
   color: #fff !important;
   border: none !important;
   border-radius: 4px !important;
-  padding: 8px 16px !important;
 }
-.btnPlay:hover {
+.btnPlay {
+  padding: 8px 16px !important;
+}
+/* Adjust padding for smaller icon buttons */
+.button-icon {
+    padding: 8px !important;
+}
+
+.btnPlay:hover, .button-icon:hover { /* Added .button-icon:hover */
   background-color: #616161 !important; /* Was a darker red */
 }
 
@@ -66,15 +73,24 @@ button:hover, .emby-button:hover, .button-flat:hover {
 /* 6️⃣ Text & Titles */
 .itemName, .cardText,
 .detailSection-title, .detailSection-content,
-.detailSection-content span, .detailSection-content a,
+.detailSection-content span,
 p, a, span, div, h1, h2, h3, h4, h5, h6 {
   background: none !important;
   color: #fff !important;
   font-weight: 400 !important;
   border: none !important;
 }
+/* Making an exception for links that are styled as tags/badges */
+.detailSection-content a {
+    background: none !important;
+}
+
 
 /* 7️⃣ Remove red background from labels/tags */
+.badge, /* Generic badge class */
+.header-tag, /* Title tag */
+.detailSection-content a[href*="person"], /* Person links */
+.detailSection-content a[href*="tag="], /* Tag links */
 span[class*="label"],
 span[class*="tag"],
 span[class*="chip"],
@@ -85,17 +101,27 @@ a[class*="label"],
 a[class*="tag"],
 a[class*="chip"],
 .itemTags .tag {
-  background: none !important;
   background-color: transparent !important;
-  color: #fff !important;
-  border: none !important;
+  color: #e0e0e0 !important; /* Use a slightly dimmer white */
+  border: 1px solid #555 !important; /* Add a border to define the tag */
   box-shadow: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  font-weight: 400 !important;
-  display: inline !important;
-  border-radius: 0 !important;
+  padding: 2px 6px !important; /* Give it some padding */
+  margin: 0 4px 2px 0 !important; /* Give it some margin */
+  border-radius: 4px !important; /* Round the corners */
+  display: inline-block !important; /* Ensure proper rendering of padding/margin */
+  text-decoration: none !important;
 }
+
+/* Add a hover effect for the now-bordered tags */
+.badge:hover,
+.header-tag:hover,
+.detailSection-content a[href*="person"]:hover,
+.detailSection-content a[href*="tag="]:hover {
+    border-color: #888 !important;
+    color: #fff !important;
+    background-color: rgba(255,255,255,0.1) !important;
+}
+
 
 /* 8️⃣ Media info text (bit rates, codecs, runtime) */
 .mediaInfoItem, .infoText, .itemMiscInfo {
