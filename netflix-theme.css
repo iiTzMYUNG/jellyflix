@@ -1,49 +1,35 @@
-/* ───────────────────────────────
-   🔥 Wipe Red Labels/Tags Completely
-─────────────────────────────── */
-
-/* Kill all red background fills */
-.label, .tag, .chip, .itemTags .tag, .mediaInfoItem .label,
-.detailSection-content .label, .detailSection-content .tag,
-.itemExternalLinks a.label {
-  background: transparent !important;
+/* 🧨 Final nuke of all red labels, tags, chips */
+span.label,
+span.tag,
+span.chip,
+.itemTags .tag,
+.detailSection-content .tag,
+.detailSection-content .label,
+.itemExternalLinks .label,
+.detailSection-content span.label,
+.detailSection-content span.tag,
+.detailSection-content span.chip,
+span.label.label-default,
+a.label {
   background-color: transparent !important;
-  color: #fff !important;
+  background: none !important;
+  color: #ffffff !important;
   border: none !important;
   box-shadow: none !important;
-  font-weight: 400 !important;
   padding: 0 !important;
   margin: 0 !important;
   display: inline !important;
+  font-weight: 400 !important;
 }
 
-/* Fix for "IMDb", genres, director, writer */
-.detailSection-content .label, .detailSection-content .tag {
-  color: #ccc !important;
-}
-
-/* Extra hard-kill for anything forcing red background */
-* {
-  --theme-primary-color: #e50914;
-  --theme-primary-color-light: #e50914;
-  --theme-primary-color-dark: #e50914;
-  --theme-primary-color-transparent: transparent;
-}
-
-.label.label-default, .label-default {
-  background: none !important;
+/* Backup nuke — removes red for director/genre/etc */
+.detailSection-content > .label,
+.detailSection-content > .tag,
+.detailSection-content > span.label,
+.detailSection-content > span.tag {
   background-color: transparent !important;
-  color: #fff !important;
+  color: #ffffff !important;
   border: none !important;
-}
-
-/* Force remove borders from all buttons */
-button, .emby-button, .button-flat {
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* Fix bold red tag fallback font-weight */
-.label, .tag {
-  font-weight: normal !important;
+  padding: 0 !important;
+  font-weight: 400 !important;
 }
