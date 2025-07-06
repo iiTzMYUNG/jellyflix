@@ -1,81 +1,53 @@
-/* Netflix-Styled Jellyfin Theme - Clean Version */
+/* ---------------------------
+   🧼 Clean Up Red Overuse 
+--------------------------- */
 
-/* Base Dark UI */
-body, .page {
-    background-color: #141414 !important;
-    color: #ffffff !important;
-    font-family: 'Helvetica Neue', Arial, sans-serif !important;
-}
-
-/* Theme Colors */
-:root {
-    --theme-primary-color: #e50914 !important;
-    --theme-secondary-color: #b81d24 !important;
-}
-
-/* Header Bar */
-.headerTabs {
-    background-color: #141414 !important;
-    border-bottom: 1px solid #333 !important;
-}
-
-/* Buttons */
-button, .emby-button, .button-flat {
-    background-color: #e50914 !important;
+/* Top right icon buttons */
+.headerButton, .headerButton:hover, .headerButton:focus {
+    background: transparent !important;
     color: white !important;
-    border-radius: 4px !important;
+    box-shadow: none !important;
     border: none !important;
 }
-button:hover, .emby-button:hover {
-    background-color: #b81d24 !important;
-}
 
-/* Card Styling */
-.cardBox, .cardOverlayContainer {
-    border-radius: 8px !important;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7) !important;
-    overflow: hidden;
-}
-
-/* Title/Text Styling */
-.itemName, .cardText {
+/* Fix tag/chip styles */
+.tag, .itemTags .tag, .label.label-default, .textActionButton, .itemExternalLinks .button-flat {
+    background-color: transparent !important;
+    color: #e50914 !important;
+    border: 1px solid #e50914 !important;
+    border-radius: 4px !important;
+    padding: 2px 6px !important;
     font-weight: 500;
+    display: inline-block;
+    margin: 2px;
+}
+
+/* Remove red from any card headers or chip stacks */
+.tag:before {
+    display: none !important;
+}
+
+/* Cleanup red buttons everywhere except Play */
+.emby-button:not(.btnPlay), button:not(.btnPlay) {
+    background-color: transparent !important;
+    border: 1px solid #e50914 !important;
+    color: #e50914 !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.emby-button:hover:not(.btnPlay), button:hover:not(.btnPlay) {
+    background-color: #e50914 !important;
     color: white !important;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-::-webkit-scrollbar-thumb {
-    background-color: #e50914;
-    border-radius: 4px;
-}
-
-/* Focus highlight */
-*:focus {
-    outline: 2px solid #e50914 !important;
+/* Play Button - bold red */
+.btnPlay {
+    background-color: #e50914 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 6px;
 }
 
-/* Desktop Backdrop Filter */
-.layout-desktop .backdropImage {
-    filter: blur(4px) saturate(120%) contrast(100%) brightness(25%);
-    transition: filter 0.3s;
-}
-
-/* Background gradient overlay */
-.backgroundContainer.withBackdrop {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 5%, rgba(0, 0, 0, 0.4) 40%, transparent 90%);
-    opacity: 1;
-}
-
-/* Mobile-specific backdrop cleanup */
-.layout-mobile .itemBackdrop {
-    filter: blur(2px) saturate(110%) brightness(20%) !important;
-    position: fixed !important;
-    top: 0; left: 0; width: 100%; height: 100vh;
-    z-index: -1;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
+.btnPlay:hover {
+    background-color: #b81d24 !important;
 }
