@@ -1,52 +1,46 @@
-/* Netflix-Inspired Jellyfin Theme with Stylized Backdrop */
+/* Netflix-Styled Jellyfin Theme - Clean Version */
 
-/* Base Dark Theme */
+/* Base Dark UI */
 body, .page {
     background-color: #141414 !important;
     color: #ffffff !important;
+    font-family: 'Helvetica Neue', Arial, sans-serif !important;
 }
 
+/* Theme Colors */
 :root {
     --theme-primary-color: #e50914 !important;
     --theme-secondary-color: #b81d24 !important;
-    --primary: #e50914 !important;
-    --highlight-color: #e50914 !important;
 }
 
-/* Navigation Bar */
+/* Header Bar */
 .headerTabs {
     background-color: #141414 !important;
     border-bottom: 1px solid #333 !important;
 }
 
 /* Buttons */
-.button-flat, .emby-button, button {
+button, .emby-button, .button-flat {
     background-color: #e50914 !important;
-    color: #ffffff !important;
+    color: white !important;
     border-radius: 4px !important;
     border: none !important;
 }
-
-.button-flat:hover, .emby-button:hover, button:hover {
+button:hover, .emby-button:hover {
     background-color: #b81d24 !important;
 }
 
-/* Card Appearance */
+/* Card Styling */
 .cardBox, .cardOverlayContainer {
-    border-radius: 6px !important;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.75) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7) !important;
+    overflow: hidden;
 }
 
-/* Fonts */
-h1, h2, h3, h4 {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
-    font-weight: bold !important;
-}
-
+/* Title/Text Styling */
 .itemName, .cardText {
-    font-size: 1rem !important;
-    font-weight: 500 !important;
-    color: #ffffff !important;
+    font-weight: 500;
+    color: white !important;
 }
 
 /* Scrollbar */
@@ -58,50 +52,30 @@ h1, h2, h3, h4 {
     border-radius: 4px;
 }
 
-/* Focus */
+/* Focus highlight */
 *:focus {
     outline: 2px solid #e50914 !important;
 }
 
-/* Backdrop Filter Desktop */
+/* Desktop Backdrop Filter */
 .layout-desktop .backdropImage {
-    filter: blur(4px) saturate(124%) contrast(100%) brightness(22%);
+    filter: blur(4px) saturate(120%) contrast(100%) brightness(25%);
     transition: filter 0.3s;
 }
 
+/* Background gradient overlay */
 .backgroundContainer.withBackdrop {
-    background: linear-gradient(
-        0deg,
-        rgb(3, 0, 9) 0%,
-        rgba(3, 0, 9, 0.98) 6%,
-        rgba(3, 0, 9, 0.95) 12%,
-        rgba(3, 0, 9, 0.9) 25%,
-        rgba(3, 0, 9, 0.5) 50%,
-        rgba(3, 0, 9, 0.0) 100%
-    );
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 5%, rgba(0, 0, 0, 0.4) 40%, transparent 90%);
     opacity: 1;
-    filter: grayscale(30%);
 }
 
-/* Mobile Backdrop */
+/* Mobile-specific backdrop cleanup */
 .layout-mobile .itemBackdrop {
-    display: block;
-    -webkit-animation: backdrop-fadein 0.8s ease-in normal both;
-    animation: backdrop-fadein 0.8s ease-in normal both;
-    background-attachment: fixed;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh !important;
+    filter: blur(2px) saturate(110%) brightness(20%) !important;
     position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 0; left: 0; width: 100%; height: 100vh;
     z-index: -1;
-    filter: blur(0px) saturate(100%) contrast(130%) brightness(20%);
-}
-
-.layout-mobile .backdropImage {
-    filter: blur(0px) saturate(100%) contrast(120%) brightness(65%);
-    transition: filter 0.3s;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
 }
