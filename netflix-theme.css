@@ -39,8 +39,8 @@ button:hover, .emby-button:hover, .button-flat:hover {
 }
 
 /* 4️⃣ Play & Icon Buttons */
-.btnPlay, .button-icon { /* Added .button-icon to target the red icon buttons */
-  background-color: #424242 !important; /* Was red */
+.btnPlay, .button-icon {
+  background-color: #424242 !important;
   color: #fff !important;
   border: none !important;
   border-radius: 4px !important;
@@ -48,13 +48,21 @@ button:hover, .emby-button:hover, .button-flat:hover {
 .btnPlay {
   padding: 8px 16px !important;
 }
-/* Adjust padding for smaller icon buttons */
 .button-icon {
     padding: 8px !important;
 }
 
-.btnPlay:hover, .button-icon:hover { /* Added .button-icon:hover */
-  background-color: #616161 !important; /* Was a darker red */
+.btnPlay:hover, .button-icon:hover {
+  background-color: #616161 !important;
+}
+
+/* 4b. Icon Colors (NEW) */
+/* This specifically targets the icons inside buttons which may have their own color */
+.button-icon svg, .btnPlay svg {
+    fill: #ffffff !important;
+}
+.button-icon .material-icons, .btnPlay .material-icons {
+    color: #ffffff !important;
 }
 
 /* 5️⃣ Card Styles */
@@ -80,17 +88,16 @@ p, a, span, div, h1, h2, h3, h4, h5, h6 {
   font-weight: 400 !important;
   border: none !important;
 }
-/* Making an exception for links that are styled as tags/badges */
 .detailSection-content a {
     background: none !important;
 }
 
 
 /* 7️⃣ Remove red background from labels/tags */
-.badge, /* Generic badge class */
-.header-tag, /* Title tag */
-.detailSection-content a[href*="person"], /* Person links */
-.detailSection-content a[href*="tag="], /* Tag links */
+.badge, .emby-badge, .text-badge, /* Added more generic badge classes */
+.header-tag,
+.detailSection-content a[href*="person"],
+.detailSection-content a[href*="tag="],
 span[class*="label"],
 span[class*="tag"],
 span[class*="chip"],
@@ -102,18 +109,18 @@ a[class*="tag"],
 a[class*="chip"],
 .itemTags .tag {
   background-color: transparent !important;
-  color: #e0e0e0 !important; /* Use a slightly dimmer white */
-  border: 1px solid #555 !important; /* Add a border to define the tag */
+  color: #e0e0e0 !important;
+  border: 1px solid #555 !important;
   box-shadow: none !important;
-  padding: 2px 6px !important; /* Give it some padding */
-  margin: 0 4px 2px 0 !important; /* Give it some margin */
-  border-radius: 4px !important; /* Round the corners */
-  display: inline-block !important; /* Ensure proper rendering of padding/margin */
+  padding: 2px 6px !important;
+  margin: 0 4px 2px 0 !important;
+  border-radius: 4px !important;
+  display: inline-block !important;
   text-decoration: none !important;
 }
 
 /* Add a hover effect for the now-bordered tags */
-.badge:hover,
+.badge:hover, .emby-badge:hover, .text-badge:hover,
 .header-tag:hover,
 .detailSection-content a[href*="person"]:hover,
 .detailSection-content a[href*="tag="]:hover {
@@ -133,7 +140,7 @@ a[class*="chip"],
   width: 8px !important;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #616161 !important; /* Was red */
+  background-color: #616161 !important;
   border-radius: 4px !important;
 }
 
