@@ -1,94 +1,49 @@
 /* ───────────────────────────────
-   🧼 Final Clean Netflix Style
+   🔥 Wipe Red Labels/Tags Completely
 ─────────────────────────────── */
 
-/* General text cleanup */
-body, p, a, span, div, h1, h2, h3, h4, h5, h6,
-.itemName, .detailSection-title, .detailSection-content {
-  background: none !important;
-  color: #fff !important;
-  font-weight: 400 !important;
-  border: none !important;
-}
-
-/* Remove red box fill from titles */
-.detailSection-title .textActionButton,
-.itemExternalLinks .btnLink,
-.sectionTitle,
-h3.cardText {
-  background: none !important;
-  color: #fff !important;
-  border: none !important;
-}
-
-/* Tags: Optional red border style */
-.tag, .itemTags .tag {
-  color: #e50914 !important;
-  border: 1px solid #e50914 !important;
+/* Kill all red background fills */
+.label, .tag, .chip, .itemTags .tag, .mediaInfoItem .label,
+.detailSection-content .label, .detailSection-content .tag,
+.itemExternalLinks a.label {
   background: transparent !important;
-  border-radius: 12px;
-  padding: 2px 8px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-/* Sidebar menu items */
-.sidebar .nav-link, .sidebar .nav-item {
-  color: #fff !important;
-  background: none !important;
-}
-.sidebar .nav-link:hover, .sidebar .nav-item:hover {
-  background-color: rgba(255, 255, 255, 0.05) !important;
-}
-
-/* Buttons (flat white, except play) */
-button, .emby-button, .button-flat, .btnReset, .detailRibbon {
-  background: none !important;
+  background-color: transparent !important;
   color: #fff !important;
   border: none !important;
   box-shadow: none !important;
-  border-radius: 4px !important;
-}
-button:hover, .emby-button:hover {
-  text-decoration: underline !important;
-  background: none !important;
-  color: #fff !important;
+  font-weight: 400 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline !important;
 }
 
-/* Keep only Play button red */
-.btnPlay {
-  background-color: #e50914 !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 4px;
-}
-.btnPlay:hover {
-  background-color: #b81d24 !important;
-}
-
-/* Info text like resolution, audio, etc. */
-.mediaInfoItem, .infoText, .itemMiscInfo {
+/* Fix for "IMDb", genres, director, writer */
+.detailSection-content .label, .detailSection-content .tag {
   color: #ccc !important;
 }
 
-/* Remove background from external links */
-.itemExternalLinks a {
-  color: #fff !important;
+/* Extra hard-kill for anything forcing red background */
+* {
+  --theme-primary-color: #e50914;
+  --theme-primary-color-light: #e50914;
+  --theme-primary-color-dark: #e50914;
+  --theme-primary-color-transparent: transparent;
+}
+
+.label.label-default, .label-default {
   background: none !important;
+  background-color: transparent !important;
+  color: #fff !important;
   border: none !important;
 }
 
-/* Card titles under episodes or seasons */
-.cardText {
-  color: #fff !important;
-  background: none !important;
+/* Force remove borders from all buttons */
+button, .emby-button, .button-flat {
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-thumb {
-  background-color: #e50914;
-  border-radius: 4px;
+/* Fix bold red tag fallback font-weight */
+.label, .tag {
+  font-weight: normal !important;
 }
