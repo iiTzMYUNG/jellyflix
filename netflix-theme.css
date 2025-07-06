@@ -1,35 +1,126 @@
-/* 🧨 Final nuke of all red labels, tags, chips */
-span.label,
-span.tag,
-span.chip,
-.itemTags .tag,
-.detailSection-content .tag,
-.detailSection-content .label,
-.itemExternalLinks .label,
-.detailSection-content span.label,
-.detailSection-content span.tag,
-.detailSection-content span.chip,
-span.label.label-default,
-a.label {
-  background-color: transparent !important;
+/* ────────────────────────────────────────────────
+   🎬 Netflix-Inspired Jellyfin Theme — Clean Slate
+──────────────────────────────────────────────── */
+
+/* 1️⃣ Base Styles */
+body, .page {
+  background-color: #141414 !important;
+  color: #fff !important;
+  font-family: 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* 2️⃣ Header & Sidebar */
+.headerTabs, .sidebar {
+  background-color: #141414 !important;
+}
+.sidebar .nav-link, .sidebar .nav-item {
+  color: #fff !important;
   background: none !important;
-  color: #ffffff !important;
+  padding: 8px 16px;
+}
+.sidebar .nav-link:hover, .sidebar .nav-item:hover {
+  background-color: rgba(255,255,255,0.05) !important;
+}
+
+/* 3️⃣ Buttons */
+button, .emby-button, .button-flat, .detailRibbon {
+  background: none !important;
+  color: #fff !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 4px !important;
+  padding: 6px 12px !important;
+  font-weight: 400 !important;
+}
+button:hover, .emby-button:hover, .button-flat:hover {
+  text-decoration: underline !important;
+  background: none !important;
+  color: #fff !important;
+}
+
+/* 4️⃣ Play button standout */
+.btnPlay {
+  background-color: #e50914 !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 8px 16px !important;
+}
+.btnPlay:hover {
+  background-color: #b81d24 !important;
+}
+
+/* 5️⃣ Card Styles */
+.cardBox, .cardOverlayContainer {
+  border-radius: 6px !important;
+  overflow: hidden !important;
+  transition: transform 0.15s ease-in-out !important;
+}
+.cardBox:hover, .cardOverlayContainer:hover {
+  transform: scale(1.03) !important;
+}
+.cardOverlayContainer {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.7) !important;
+}
+
+/* 6️⃣ Text & Titles */
+.itemName, .cardText,
+.detailSection-title, .detailSection-content,
+.detailSection-content span, .detailSection-content a,
+p, a, span, div, h1, h2, h3, h4, h5, h6 {
+  background: none !important;
+  color: #fff !important;
+  font-weight: 400 !important;
+  border: none !important;
+}
+
+/* 7️⃣ Remove red background from labels/tags */
+span[class*="label"],
+span[class*="tag"],
+span[class*="chip"],
+div[class*="label"],
+div[class*="tag"],
+div[class*="chip"],
+a[class*="label"],
+a[class*="tag"],
+a[class*="chip"],
+.itemTags .tag {
+  background: none !important;
+  background-color: transparent !important;
+  color: #fff !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
   margin: 0 !important;
-  display: inline !important;
   font-weight: 400 !important;
+  display: inline !important;
+  border-radius: 0 !important;
 }
 
-/* Backup nuke — removes red for director/genre/etc */
-.detailSection-content > .label,
-.detailSection-content > .tag,
-.detailSection-content > span.label,
-.detailSection-content > span.tag {
-  background-color: transparent !important;
-  color: #ffffff !important;
-  border: none !important;
-  padding: 0 !important;
-  font-weight: 400 !important;
+/* 8️⃣ Media info text (bit rates, codecs, runtime) */
+.mediaInfoItem, .infoText, .itemMiscInfo {
+  color: #ccc !important;
+}
+
+/* 9️⃣ Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px !important;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #e50914 !important;
+  border-radius: 4px !important;
+}
+
+/* 🔟 Backdrop effects */
+.layout-desktop .backdropImage {
+  filter: blur(4px) contrast(100%) brightness(22%) saturate(110%) !important;
+}
+.backgroundContainer.withBackdrop {
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 5%, rgba(0,0,0,0.4) 40%, transparent 90%) !important;
+}
+.layout-mobile .itemBackdrop {
+  filter: blur(2px) brightness(20%) contrast(120%) saturate(110%) !important;
+  position: fixed !important;
+  top: 0; left: 0; width: 100%; height: 100vh;
+  z-index: -1 !important;
 }
