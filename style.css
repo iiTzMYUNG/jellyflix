@@ -1,119 +1,59 @@
-/* === Netflix + Finality Theme for Jellyfin === */
-:root {
-    --accent-color: #e50914;
-    --background-color: #141414;
-    --text-color: #ffffff;
-    --card-radius: 6px;
-}
+/* Netflix + Finality Hybrid Theme for Jellyfin */
 
-/* Global background & text */
-body {
-    background-color: var(--background-color) !important;
-    color: var(--text-color) !important;
-    font-family: Arial, sans-serif;
-}
-
-/* Titles */
-.cardText {
-    font-family: 'Bebas Neue', Arial, sans-serif;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    color: var(--text-color);
-}
-
-/* Horizontal scrolling rows - updated selectors */
+/* ---- GENERAL LAYOUT FIX ---- */
 .verticalSection .emby-scroller {
     display: flex !important;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
+    gap: 12px;
     scroll-snap-type: x mandatory;
-    gap: 10px;
-    padding: 0 10px 20px 10px;
+    padding: 10px 0 20px;
 }
 
-/* Cards in rows */
 .verticalSection .emby-scroller .card {
     flex: 0 0 auto;
     scroll-snap-align: start;
-    margin-right: 10px;
-    border-radius: var(--card-radius);
+    border-radius: 8px;
     overflow: hidden;
     background-color: #000;
-    position: relative;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-/* Hover zoom effect (desktop) */
+/* ---- NETFLIX HOVER ZOOM ---- */
 @media (hover: hover) {
     .verticalSection .emby-scroller .card:hover {
         transform: scale(1.08);
-        transition: transform 0.2s ease-in-out;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
         z-index: 2;
     }
 }
 
-/* Overlay for Play button */
-.nf-hover-overlay {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 5px 10px;
-    border-radius: 4px;
-}
-.nf-play-btn {
-    background: var(--accent-color);
-    color: white;
-    border: none;
-    padding: 5px 12px;
-    font-size: 14px;
-    cursor: pointer;
-    border-radius: 4px;
+/* ---- TITLE STYLING ---- */
+.sectionTitle {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 1.4em;
+    color: #fff !important;
 }
 
-/* Mobile layout */
+/* ---- BACKGROUND & TEXT ---- */
+body {
+    background-color: #141414 !important;
+    color: #fff !important;
+}
+
+/* ---- MOBILE FRIENDLY ---- */
 @media (max-width: 768px) {
     .verticalSection .emby-scroller {
-        flex-wrap: wrap !important;
-        overflow-x: hidden !important;
-        scroll-snap-type: none;
-        gap: 5px;
-        justify-content: center;
+        gap: 8px;
+        padding: 6px 0 14px;
     }
+
+    .sectionTitle {
+        font-size: 1.2em;
+    }
+
     .verticalSection .emby-scroller .card {
-        flex: 0 0 calc(50% - 10px);
-        margin-right: 0;
+        border-radius: 6px;
     }
-    .cardText {
-        font-size: 1rem !important;
-    }
-}
-
-/* Scrollbar */
-.verticalSection .emby-scroller::-webkit-scrollbar {
-    height: 8px;
-}
-.verticalSection .emby-scroller::-webkit-scrollbar-thumb {
-    background: var(--accent-color);
-    border-radius: 4px;
-}
-.verticalSection .emby-scroller::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-/* Buttons */
-.button-flat {
-    background-color: var(--accent-color) !important;
-    color: var(--text-color) !important;
-    border-radius: 4px;
-}
-
-/* Top bar */
-#header {
-    background: rgba(0, 0, 0, 0.85) !important;
-    backdrop-filter: blur(5px);
-}
-
-/* Hide vertical scroll glitch */
-.emby-scroller {
-    overflow-y: hidden !important;
 }
