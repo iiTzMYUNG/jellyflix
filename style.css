@@ -18,9 +18,12 @@ body {
 
 /* Netflix-like hero banner */
 #homeTab .itemsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+    padding-bottom: 10px;
 }
 
 /* Horizontal carousel scrolling */
