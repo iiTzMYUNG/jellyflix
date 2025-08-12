@@ -1,46 +1,101 @@
-/* Background and colors */
+/* --- Netflix Color Theme --- */
 :root {
     --accent-color: #e50914;
     --background-color: #141414;
+    --text-color: #ffffff;
+    --card-radius: 6px;
 }
 
+/* Background and text */
 body {
     background-color: var(--background-color) !important;
-    color: white !important;
+    color: var(--text-color) !important;
+    font-family: Arial, sans-serif;
 }
 
-/* Titles */
+/* Titles and text */
 .cardText {
     font-family: 'Bebas Neue', Arial, sans-serif;
     font-size: 1.2rem;
     text-transform: uppercase;
+    color: var(--text-color);
 }
 
-/* Netflix-like hero banner */
+/* --- Home screen Netflix-style layout --- */
 #homeTab .itemsContainer {
     display: flex !important;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
     scroll-snap-type: x mandatory;
     gap: 10px;
-    padding-bottom: 10px;
+    padding: 0 10px 20px 10px;
 }
 
-/* Horizontal carousel scrolling */
-.itemsContainer {
-    display: flex !important;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-}
-.itemsContainer .card {
+/* Horizontal scrolling cards */
+#homeTab .itemsContainer .card {
     flex: 0 0 auto;
     scroll-snap-align: start;
     margin-right: 10px;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    background-color: #000;
 }
 
-/* Hover effect */
-.card:hover {
-    transform: scale(1.08);
-    transition: transform 0.2s ease-in-out;
-    z-index: 2;
+/* Hover zoom (desktop only) */
+@media (hover: hover) {
+    .card:hover {
+        transform: scale(1.08);
+        transition: transform 0.2s ease-in-out;
+        z-index: 2;
+    }
+}
+
+/* --- Mobile-friendly view --- */
+@media (max-width: 768px) {
+    #homeTab .itemsContainer {
+        flex-wrap: wrap !important;
+        overflow-x: hidden !important;
+        scroll-snap-type: none;
+        gap: 5px;
+        justify-content: center;
+    }
+
+    #homeTab .itemsContainer .card {
+        flex: 0 0 calc(50% - 10px); /* two per row */
+        margin-right: 0;
+    }
+
+    .cardText {
+        font-size: 1rem !important;
+    }
+}
+
+/* --- Scrollbar styling (like Netflix) --- */
+#homeTab .itemsContainer::-webkit-scrollbar {
+    height: 8px;
+}
+#homeTab .itemsContainer::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+}
+#homeTab .itemsContainer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* --- Buttons --- */
+.button-flat {
+    background-color: var(--accent-color) !important;
+    color: var(--text-color) !important;
+    border-radius: 4px;
+}
+
+/* --- Top bar styling --- */
+#header {
+    background: rgba(0, 0, 0, 0.85) !important;
+    backdrop-filter: blur(5px);
+}
+
+/* --- Hide overflow glitch on scaling --- */
+.itemsContainer {
+    overflow-y: hidden;
 }
