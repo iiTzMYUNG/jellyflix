@@ -126,6 +126,7 @@ body {
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  position: relative; /* Needed for absolute positioning of card-content */
 }
 
 .card:hover {
@@ -135,19 +136,39 @@ body {
 
 .card-content {
   padding: var(--spacing-sm);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+  color: var(--text-color-primary);
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease-in-out;
+  transform: translateY(100%); /* Start off-screen */
+  will-change: transform, opacity; /* Performance optimization */
+}
+
+.card:hover .card-content {
+  opacity: 1; /* Fade in on hover */
+  transform: translateY(0); /* Slide up into view */
+}
+
+/* Hide the content that was originally below the poster */
+.card-title,
+.card-subtitle {
+  margin: 0;
+  padding: 0 var(--spacing-sm);
+  transition: color 0.2s ease-in-out;
 }
 
 .card-title {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-color-primary);
-  margin: 0 0 var(--spacing-xxs) 0;
 }
 
 .card-subtitle {
   font-size: 0.875rem;
   color: var(--text-color-secondary);
-  margin: 0;
 }
 
 /* Focus on making the carousel look more like Netflix's */
