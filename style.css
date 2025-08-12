@@ -21,7 +21,7 @@ body {
     color: var(--text-color);
 }
 
-/* --- Home Layout from Finality --- */
+/* --- Home Layout (Finality + Netflix) --- */
 .homePageSection .itemsContainer {
     display: flex !important;
     flex-wrap: nowrap !important;
@@ -39,6 +39,7 @@ body {
     border-radius: var(--card-radius);
     overflow: hidden;
     background-color: #000;
+    position: relative;
 }
 
 /* Hover zoom (desktop only) */
@@ -48,6 +49,25 @@ body {
         transition: transform 0.2s ease-in-out;
         z-index: 2;
     }
+}
+
+/* Overlay for Play button */
+.nf-hover-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+.nf-play-btn {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
 }
 
 /* --- Mobile-friendly layout --- */
