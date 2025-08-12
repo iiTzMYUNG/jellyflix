@@ -1,17 +1,20 @@
-console.log("Netflix Theme Loaded");
+console.log("Netflix Theme Loaded - Enhanced Hover");
 
-// Example: Play backdrop on hover
+// Add overlay play button on hover
 document.addEventListener("mouseover", (e) => {
-    let card = e.target.closest(".card");
-    if (card) {
-        // Future: Trigger preview video
-        card.style.border = "2px solid var(--accent-color)";
+    const card = e.target.closest(".card");
+    if (card && !card.querySelector(".nf-hover-overlay")) {
+        const overlay = document.createElement("div");
+        overlay.classList.add("nf-hover-overlay");
+        overlay.innerHTML = `<button class="nf-play-btn">▶ Play</button>`;
+        card.appendChild(overlay);
     }
 });
 
 document.addEventListener("mouseout", (e) => {
-    let card = e.target.closest(".card");
+    const card = e.target.closest(".card");
     if (card) {
-        card.style.border = "none";
+        const overlay = card.querySelector(".nf-hover-overlay");
+        if (overlay) overlay.remove();
     }
 });
