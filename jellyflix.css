@@ -175,14 +175,28 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
 }
 
-a {
-  color: var(--highlight-color);
+/* This is a more specific rule for general links */
+body a {
+  color: var(--text-color-primary);
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
 
-a:hover {
-  color: var(--accent-color);
+body a:hover {
+  color: var(--accent-color) !important;
+}
+
+/* More specific hover rules for navigation and menu items */
+.navMenuOption:hover .navMenuOptionText {
+  color: var(--highlight-color) !important;
+}
+
+.emby-tab-button:hover {
+  color: var(--highlight-color) !important;
+}
+
+.button-link:hover {
+  color: var(--highlight-color) !important;
 }
 
 /* Override default Jellyfin button styles */
@@ -212,8 +226,8 @@ a:hover {
 }
 
 .button-primary:hover, .btn-primary:hover {
-  background-color: #ff3333;
-  border-color: #ff3333;
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 
