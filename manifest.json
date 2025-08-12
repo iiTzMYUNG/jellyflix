@@ -1,11 +1,19 @@
 {
-  "name": "Netflix Theme",
-  "guid": "netflix-theme-jellyfin",
-  "version": "1.0.0",
-  "description": "A Jellyfin theme inspired by Netflix's UI",
-  "targetAbi": "10.8.0",
-  "framework": "net6.0",
-  "category": "UI",
-  "owner": "your-github-username",
-  "homepage": "https://github.com/your-github-username/jellyfin-netflix-theme"
+    "name": "Netflix Theme",
+    "description": "A custom Jellyfin theme inspired by Netflix, merged with Finality's layout for stability. Features horizontal scrolling rows, responsive mobile view, and hover effects.",
+    "version": "1.1.0",
+    "author": "iiTzMYUNG",
+    "targetAbi": "10.8.0.0",
+    "id": "jellyfin.theme.netflixfinality",
+    "category": "Theme",
+    "type": "css",
+    "sourceUrl": "https://github.com/iiTzMYUNG/jellyfin-netflix-theme",
+    "css": [
+        "style.css"
+    ],
+    "js": [
+        "script.js"
+    ],
+    "homepage": "https://github.com/iiTzMYUNG/jellyfin-netflix-theme",
+    "changelog": "https://github.com/iiTzMYUNG/jellyfin-netflix-theme/releases"
 }
