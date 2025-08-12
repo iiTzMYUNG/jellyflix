@@ -126,7 +126,7 @@ body {
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  position: relative; /* Needed for absolute positioning of card-content */
+  position: relative; /* Needed for absolute positioning of the overlay */
 }
 
 .card:hover {
@@ -134,39 +134,39 @@ body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 }
 
-.card-content {
-  padding: var(--spacing-sm);
+/* Hide the content that was originally below the poster */
+.cardText {
+  display: none;
+}
+
+/* Create an overlay for the text that is hidden by default */
+.cardOverlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent overlay */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
   color: var(--text-color-primary);
   opacity: 0; /* Hidden by default */
+  padding: var(--spacing-sm);
   transition: opacity 0.3s ease-in-out;
-  transform: translateY(100%); /* Start off-screen */
-  will-change: transform, opacity; /* Performance optimization */
+  pointer-events: none; /* Allows clicks to go through to the card link */
 }
 
-.card:hover .card-content {
-  opacity: 1; /* Fade in on hover */
-  transform: translateY(0); /* Slide up into view */
+/* Show the overlay on card hover */
+.card:hover .cardOverlay {
+  opacity: 1;
 }
 
-/* Hide the content that was originally below the poster */
-.card-title,
-.card-subtitle {
+.cardOverlay .card-title {
   margin: 0;
-  padding: 0 var(--spacing-sm);
-  transition: color 0.2s ease-in-out;
-}
-
-.card-title {
   font-size: 1rem;
   font-weight: 600;
+  color: var(--text-color-primary);
 }
 
-.card-subtitle {
+.cardOverlay .card-subtitle {
+  margin: 0;
   font-size: 0.875rem;
   color: var(--text-color-secondary);
 }
