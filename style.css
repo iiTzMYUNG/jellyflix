@@ -1,0 +1,43 @@
+/* Background and colors */
+:root {
+    --accent-color: #e50914;
+    --background-color: #141414;
+}
+
+body {
+    background-color: var(--background-color) !important;
+    color: white !important;
+}
+
+/* Titles */
+.cardText {
+    font-family: 'Bebas Neue', Arial, sans-serif;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* Netflix-like hero banner */
+#homeTab .itemsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Horizontal carousel scrolling */
+.itemsContainer {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+.itemsContainer .card {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    margin-right: 10px;
+}
+
+/* Hover effect */
+.card:hover {
+    transform: scale(1.08);
+    transition: transform 0.2s ease-in-out;
+    z-index: 2;
+}
