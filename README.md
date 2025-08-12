@@ -22,5 +22,5 @@ A custom CSS theme for Jellyfin inspired by the clean and bold look of Netflix.
 4. Paste the following line:
 
 ```css
-@import url("https://cdn.jsdelivr.net/gh/iiTzMYUNG/jellyfin-netflix-theme@main/netflix-theme.css");
+@import url("https://cdn.jsdelivr.net/gh/iiTzMYUNG/jellyfin-netflix-theme@main/style.css");
 
