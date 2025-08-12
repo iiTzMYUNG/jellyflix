@@ -69,7 +69,6 @@ body {
   right: 0;
   z-index: 1000;
   padding: var(--spacing-sm) var(--spacing-lg);
-  /* Removed the box-shadow for a cleaner look */
   border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg); /* Rounded bottom corners */
 }
 
@@ -113,6 +112,7 @@ body {
   font-weight: 600;
   margin-bottom: var(--spacing-md);
   color: var(--text-color-primary);
+  border: none !important; /* Remove the border from the header */
 }
 
 /* =========================================================================
@@ -125,13 +125,11 @@ body {
   background-color: var(--secondary-background);
   border-radius: var(--border-radius-md);
   overflow: hidden;
-  /* Removed the box-shadow for a cleaner look */
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 
 .card:hover, .emby-card:hover {
   transform: scale(1.05); /* Slight zoom on hover, like Netflix */
-  /* Replaced the box-shadow with a highlight border to keep a visual cue */
   border: 2px solid var(--highlight-color);
 }
 
