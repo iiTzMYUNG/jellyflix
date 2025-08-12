@@ -1,4 +1,4 @@
-/* --- Netflix Color Theme --- */
+/* === Netflix + Finality Theme for Jellyfin === */
 :root {
     --accent-color: #e50914;
     --background-color: #141414;
@@ -6,7 +6,7 @@
     --card-radius: 6px;
 }
 
-/* Background and text */
+/* Global background & text */
 body {
     background-color: var(--background-color) !important;
     color: var(--text-color) !important;
@@ -21,8 +21,8 @@ body {
     color: var(--text-color);
 }
 
-/* --- Home Layout (Finality + Netflix) --- */
-.homePageSection .itemsContainer {
+/* Horizontal scrolling rows - updated selectors */
+.verticalSection .emby-scroller {
     display: flex !important;
     flex-wrap: nowrap !important;
     overflow-x: auto !important;
@@ -31,8 +31,8 @@ body {
     padding: 0 10px 20px 10px;
 }
 
-/* Card layout */
-.homePageSection .itemsContainer .card {
+/* Cards in rows */
+.verticalSection .emby-scroller .card {
     flex: 0 0 auto;
     scroll-snap-align: start;
     margin-right: 10px;
@@ -42,9 +42,9 @@ body {
     position: relative;
 }
 
-/* Hover zoom (desktop only) */
+/* Hover zoom effect (desktop) */
 @media (hover: hover) {
-    .card:hover {
+    .verticalSection .emby-scroller .card:hover {
         transform: scale(1.08);
         transition: transform 0.2s ease-in-out;
         z-index: 2;
@@ -70,35 +70,33 @@ body {
     border-radius: 4px;
 }
 
-/* --- Mobile-friendly layout --- */
+/* Mobile layout */
 @media (max-width: 768px) {
-    .homePageSection .itemsContainer {
+    .verticalSection .emby-scroller {
         flex-wrap: wrap !important;
         overflow-x: hidden !important;
         scroll-snap-type: none;
         gap: 5px;
         justify-content: center;
     }
-
-    .homePageSection .itemsContainer .card {
+    .verticalSection .emby-scroller .card {
         flex: 0 0 calc(50% - 10px);
         margin-right: 0;
     }
-
     .cardText {
         font-size: 1rem !important;
     }
 }
 
-/* Scrollbar styling */
-.homePageSection .itemsContainer::-webkit-scrollbar {
+/* Scrollbar */
+.verticalSection .emby-scroller::-webkit-scrollbar {
     height: 8px;
 }
-.homePageSection .itemsContainer::-webkit-scrollbar-thumb {
+.verticalSection .emby-scroller::-webkit-scrollbar-thumb {
     background: var(--accent-color);
     border-radius: 4px;
 }
-.homePageSection .itemsContainer::-webkit-scrollbar-track {
+.verticalSection .emby-scroller::-webkit-scrollbar-track {
     background: transparent;
 }
 
@@ -115,7 +113,7 @@ body {
     backdrop-filter: blur(5px);
 }
 
-/* Hide overflow glitch */
-.itemsContainer {
-    overflow-y: hidden;
+/* Hide vertical scroll glitch */
+.emby-scroller {
+    overflow-y: hidden !important;
 }
