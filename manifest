@@ -1,0 +1,11 @@
+{
+  "name": "Netflix Theme",
+  "guid": "netflix-theme-jellyfin",
+  "version": "1.0.0",
+  "description": "A Jellyfin theme inspired by Netflix's UI",
+  "targetAbi": "10.8.0",
+  "framework": "net6.0",
+  "category": "UI",
+  "owner": "your-github-username",
+  "homepage": "https://github.com/your-github-username/jellyfin-netflix-theme"
+}
