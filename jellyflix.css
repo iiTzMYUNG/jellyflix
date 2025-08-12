@@ -20,8 +20,8 @@
   --secondary-background: #161b22; /* Slightly lighter for cards and containers */
   --text-color-primary: #c9d1d9; /* Light gray for main text */
   --text-color-secondary: #8b949e; /* Muted gray for secondary text */
-  --accent-color: #38a169; /* A green accent color, similar to a 'commit' color */
-  --highlight-color: #58a6ff; /* A blue highlight, similar to link colors */
+  --accent-color: #e50914; /* A deep red, similar to Netflix */
+  --highlight-color: #ff4d4d; /* A brighter red for highlights and links */
 
   /* Font Styling */
   --font-family-body: 'Inter', sans-serif;
@@ -212,8 +212,8 @@ a:hover {
 }
 
 .button-primary:hover, .btn-primary:hover {
-  background-color: #4a99e9;
-  border-color: #4a99e9;
+  background-color: #ff3333;
+  border-color: #ff3333;
 }
 
 
