@@ -135,12 +135,14 @@ body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 }
 
-/* Force hide the text elements below the posters, using !important for specificity */
+/* Hide the text elements below the posters, using visibility and height for a more robust override */
 .emby-card .cardText,
 .emby-card .cardText-first,
 .emby-card .cardText-second {
-  display: none !important;
   visibility: hidden !important;
+  height: 0 !important;
+  display: none !important;
+  pointer-events: none !important;
 }
 
 /* Create the text overlay that is initially hidden, pulling the title from a reliable attribute */
