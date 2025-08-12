@@ -120,13 +120,14 @@ body {
  * 5. Item Cards (Movies, Shows, etc.)
  * ========================================================================= */
 
+/* Main card container. This is a crucial element to get right. */
 .card {
+  position: relative; /* Needed for the absolute positioning of the text overlay */
   background-color: var(--secondary-background);
   border-radius: var(--border-radius-md);
   overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  position: relative; /* Needed for absolute positioning of the overlay */
 }
 
 .card:hover {
@@ -134,41 +135,50 @@ body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
 }
 
-/* Hide the content that was originally below the poster */
+/* Hide the text that is normally shown below the card poster. Using !important to ensure it works. */
 .cardText {
-  display: none;
+  display: none !important;
 }
 
-/* Create an overlay for the text that is hidden by default */
-.cardOverlay {
+/* The parent element of the poster. We will use this to create the overlay effect. */
+.cardImageContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Create the text overlay that is initially hidden */
+.cardImageContainer::after {
+  /* Use the title from the image's aria-label or alt attribute */
+  content: attr(aria-label) !important;
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
+  padding: var(--spacing-sm);
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
   color: var(--text-color-primary);
-  opacity: 0; /* Hidden by default */
-  padding: var(--spacing-sm);
-  transition: opacity 0.3s ease-in-out;
-  pointer-events: none; /* Allows clicks to go through to the card link */
-}
-
-/* Show the overlay on card hover */
-.card:hover .cardOverlay {
-  opacity: 1;
-}
-
-.cardOverlay .card-title {
-  margin: 0;
-  font-size: 1rem;
+  text-align: center;
   font-weight: 600;
-  color: var(--text-color-primary);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 100%; /* Cover the entire poster */
+  font-size: 1rem;
 }
 
-.cardOverlay .card-subtitle {
-  margin: 0;
-  font-size: 0.875rem;
-  color: var(--text-color-secondary);
+.card:hover .cardImageContainer::after {
+  opacity: 1; /* Show the overlay on hover */
+}
+
+/* Fix for the continue watching row to apply the same logic */
+.card.continueWatchingCard .cardImageContainer::after {
+  content: attr(aria-label); /* Use aria-label here as well */
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 600;
 }
 
 /* Focus on making the carousel look more like Netflix's */
