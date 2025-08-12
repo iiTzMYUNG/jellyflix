@@ -69,7 +69,7 @@ body {
   right: 0;
   z-index: 1000;
   padding: var(--spacing-sm) var(--spacing-lg);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  /* Removed the box-shadow for a cleaner look */
   border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg); /* Rounded bottom corners */
 }
 
@@ -91,7 +91,6 @@ body {
 
 .header-search-input:focus {
   border-color: var(--highlight-color);
-  box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.4);
   outline: none;
 }
 
@@ -126,13 +125,14 @@ body {
   background-color: var(--secondary-background);
   border-radius: var(--border-radius-md);
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  /* Removed the box-shadow for a cleaner look */
   transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .card:hover, .emby-card:hover {
   transform: scale(1.05); /* Slight zoom on hover, like Netflix */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  /* Replaced the box-shadow with a highlight border to keep a visual cue */
+  border: 2px solid var(--highlight-color);
 }
 
 /* Hide the text elements below the posters, using visibility and height for a more robust override */
