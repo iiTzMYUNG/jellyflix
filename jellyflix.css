@@ -1,0 +1,249 @@
+/*
+ * Jellyfin Custom CSS: "GitHub-flix" Theme
+ * Filename: jellyflix.css
+ * ---------------------------------------------------
+ * This CSS file is designed to give Jellyfin a modern, dark theme
+ * inspired by GitHub's clean aesthetic and Netflix's content-first layout.
+ *
+ * To use this, save the content as `jellyflix.css` and upload it in your
+ * Jellyfin Dashboard > General > Custom CSS.
+ */
+
+/* =========================================================================
+ * 1. Theme Variables
+ * Use these variables to easily change the color palette.
+ * ========================================================================= */
+
+:root {
+  /* Main Colors */
+  --primary-background: #0d1117; /* Dark background from GitHub */
+  --secondary-background: #161b22; /* Slightly lighter for cards and containers */
+  --text-color-primary: #c9d1d9; /* Light gray for main text */
+  --text-color-secondary: #8b949e; /* Muted gray for secondary text */
+  --accent-color: #38a169; /* A green accent color, similar to a 'commit' color */
+  --highlight-color: #58a6ff; /* A blue highlight, similar to link colors */
+
+  /* Font Styling */
+  --font-family-body: 'Inter', sans-serif;
+  --font-family-mono: 'Roboto Mono', monospace; /* For code-like elements if needed */
+
+  /* Spacing */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
+
+/* =========================================================================
+ * 2. General Body and Layout
+ * ========================================================================= */
+
+body {
+  background-color: var(--primary-background);
+  color: var(--text-color-primary);
+  font-family: var(--font-family-body);
+}
+
+/* Main content container */
+.page {
+  padding-top: 60px; /* Adjust for the fixed header */
+}
+
+/* =========================================================================
+ * 3. Header and Navigation
+ * ========================================================================= */
+
+.app-header {
+  background-color: var(--secondary-background);
+  border-bottom: 1px solid #30363d;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.app-header .app-header-left,
+.app-header .app-header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.header-search-input {
+  background-color: var(--primary-background);
+  border: 1px solid #30363d;
+  color: var(--text-color-primary);
+  border-radius: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  transition: all 0.2s ease-in-out;
+}
+
+.header-search-input:focus {
+  border-color: var(--highlight-color);
+  box-shadow: 0 0 0 2px rgba(88, 166, 255, 0.4);
+  outline: none;
+}
+
+/* =========================================================================
+ * 4. Home Page Layout (Hero and Carousels)
+ * ========================================================================= */
+
+/* Large hero image section, inspired by Netflix's top banner */
+.now-playing-bar {
+  display: none; /* We will use a custom 'hero' section instead */
+}
+
+.home-page-items {
+  padding: 0 var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.home-section-header {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--text-color-primary);
+}
+
+/* =========================================================================
+ * 5. Item Cards (Movies, Shows, etc.)
+ * ========================================================================= */
+
+.card {
+  background-color: var(--secondary-background);
+  border-radius: var(--spacing-xs);
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Slight zoom on hover, like Netflix */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+.card-content {
+  padding: var(--spacing-sm);
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-color-primary);
+  margin: 0 0 var(--spacing-xxs) 0;
+}
+
+.card-subtitle {
+  font-size: 0.875rem;
+  color: var(--text-color-secondary);
+  margin: 0;
+}
+
+/* Focus on making the carousel look more like Netflix's */
+.items-list {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: var(--spacing-sm);
+  padding-bottom: var(--spacing-md);
+  /* Hide the scrollbar but keep functionality */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+}
+
+.items-list::-webkit-scrollbar {
+  display: none; /* WebKit browsers (Chrome, Safari, etc.) */
+}
+
+/* Individual card within the carousel */
+.items-list .card {
+  flex: 0 0 auto;
+  width: 250px; /* Adjust card width for desktop */
+}
+
+/* =========================================================================
+ * 6. Typography and Text
+ * ========================================================================= */
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-color-primary);
+  font-weight: 600;
+}
+
+a {
+  color: var(--highlight-color);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+/* Override default Jellyfin button styles */
+.button-flat, .btn-secondary {
+  background-color: transparent;
+  color: var(--text-color-primary);
+  border: 1px solid #30363d;
+  border-radius: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.button-flat:hover, .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--highlight-color);
+}
+
+/* Primary buttons */
+.button-primary, .btn-primary {
+  background-color: var(--highlight-color);
+  color: #fff;
+  border: 1px solid var(--highlight-color);
+  font-weight: 600;
+  border-radius: var(--spacing-xs);
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.button-primary:hover, .btn-primary:hover {
+  background-color: #4a99e9;
+  border-color: #4a99e9;
+}
+
+
+/* =========================================================================
+ * 7. Mobile and Responsive Design
+ * ========================================================================= */
+
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .app-header {
+    padding: var(--spacing-xs);
+    gap: var(--spacing-sm);
+  }
+
+  .home-page-items {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .items-list .card {
+    width: 150px; /* Smaller card width for mobile */
+  }
+
+  .card-title {
+    font-size: 0.9rem;
+  }
+
+  .card-subtitle {
+    font-size: 0.75rem;
+  }
+}
